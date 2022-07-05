@@ -13,6 +13,8 @@ Ogni membro è caratterizzato dalle seguenti informazioni: nome, ruolo e foto.
 // Organizzare i singoli membri in card/schede e ispirarci alle grafiche in allegato
 // */
 
+
+//Creo il mio array di oggetti
 const teamPersons = [
   {
     name: 'Wayne Barnett',
@@ -46,19 +48,26 @@ const teamPersons = [
   }
 ];
 
+// Recupero l'elemento dal DOM per inserirci lo stringone
 const deckElement = document.getElementById('deck-card');
+
+//dichiaro la variabile contenente lo stringone
 let cardItems = "";
 
+//Eseguo un ciclo for per creare i vari pezzi dello stringone
 for (let i = 0; i < teamPersons.length; i++) {
+  
+  //dichiaro una variabile di tipo stringa contente lo stringone di ciascuna card
   let cardItem = '<div class="col"><div class="card">';
   cardItem += `<img src="img/${teamPersons[i].image}" class="card-img-top" alt="${teamPersons[i].name}">`
   cardItem += `<div class="card-body">`
   cardItem += `<h5 class="card-title">${teamPersons[i].name}</h5>`
   cardItem += `<p class="card-text">${teamPersons[i].role}</p>`
   cardItem += `</div></div></div>` 
-  console.log(cardItem);
+
+  // concateno nello stringone le giro dopo giro lo stringone di ogni card
   cardItems += cardItem;
-  console.log(cardItems);
 }
 
+// stampo lo stringone finale su pagina
 deckElement.innerHTML = cardItems;
